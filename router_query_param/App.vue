@@ -2,7 +2,7 @@
   <div id="app">
     <div class="link">
       <router-link to="/home">首页</router-link>
-      <router-link to="/search/*">搜索页</router-link>
+      <router-link to="/search">搜索页</router-link>
     </div>
 
     <router-view></router-view>
