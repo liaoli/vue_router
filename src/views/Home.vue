@@ -2,8 +2,8 @@
   <div class="home">
     <div class="logo-box"></div>
     <div class="search-box">
-      <input type="text">
-      <button>搜索一下</button>
+      <input v-model="inputValue" type="text" />
+      <button @click="goSearch">搜索一下</button>
     </div>
     <div class="hot-link">
       热门搜索：
@@ -16,14 +16,49 @@
 
 <script>
 export default {
-  name: 'FindMusic'
-}
+  name: "FindMusic",
+  data() {
+    return {
+      inputValue: "",
+    };
+  },
+  methods: {
+    goSearch() {
+      //1.通过路径方式跳转
+      // this.$router.push('/search') //简写
+
+      // this.$router.push(`/search/${this.inputValue}`)
+      // this.$router.push(`/search?key=${this.inputValue}`)
+
+      // this.$router.push({path:'/search'}) //完整写法
+      this.$router.push({
+        path: "/search",
+        query: {
+          key: this.inputValue,
+
+        },
+        params: {
+          words:this.inputValue,
+        },
+      });
+
+      // this.$router.push({ name: "search" });
+
+      // this.$router.push({
+      //   name: "search",
+      //   params: {
+      //     words: this.inputValue,
+      //   },
+      // });
+    },
+  },
+};
 </script>
 
 <style>
 .logo-box {
   height: 150px;
-  background: url('@/assets/logo.jpeg') no-repeat center;
+  background: url("@/assets/logo.jpeg") no-repeat center;
 }
 .search-box {
   display: flex;

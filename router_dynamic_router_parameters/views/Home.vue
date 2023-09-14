@@ -3,7 +3,7 @@
     <div class="logo-box"></div>
     <div class="search-box">
       <input type="text">
-      <button>搜索一下</button>
+      <button @onclick ="goSearch">搜索一下</button>
     </div>
     <div class="hot-link">
       热门搜索：
@@ -16,7 +16,13 @@
 
 <script>
 export default {
-  name: 'FindMusic'
+  name: 'FindMusic',
+  methods:{
+    goSearch(){
+      //1.通过路径方式跳转
+      this.$router.push('/search')
+    }
+  }
 }
 </script>
 

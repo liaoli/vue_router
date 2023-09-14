@@ -12,7 +12,7 @@ const router = new VueRouter({
     { path: '/', redirect: '/home' },
     { path: '/home', component: Home },
     { path: '*', component: NotFound },
-    { path: '/search/:words?', component: Search }
+    { name:'search',path: '/search/:words?', component: Search }
   ]
 })
 
